@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Request</title>
+</head>
+<body style="background-color: rgb(238, 109, 109);">
+    0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. 
+<p>this is stating states when calling an api using XMLHttpRequest</p>
+<div class="userImage"></div>
+    
+</body>
+<script> 
+const apirequestUrl= "https://randomuser.me/api/?results=1"; 
+//this is some random api url from randomuserme.api
+const xhr= new XMLHttpRequest(); //an old way to fetch data from random apis ...basically a var is storing and instantiating object using new keyword and making xmlhttpreq
+xhr.open('GET',apirequestUrl); //state1 of xmlhttpreqesut
+xhr.onreadystatechange= function() {
+    console.log(xhr.readyState==4 )
+     { //if state is 3 then do this
+        console.log(this.responseText);
+        // when we access data from some api,its in string format we have to convert it into json format 
+        const randomUserData= JSON.parse(this.responseText);
+        console.log(typeof randomUserData);
+
+        // console.log(randomUserData.gender);
+        console.log(randomUserData.results[0].gender);
+
+    //     console.log(randomUserData.results.email);
+        console.log(randomUserData.results[0].login.username);
+        console.log(randomUserData.results[0].login.password);
+        console.log(randomUserData.location.street);
+    /*
+       // Accessing the image URL
+       const imageUrl = randomUserData.results[0].picture.large;
+        console.log(imageUrl);
+
+        // Displaying the image in the HTML
+        document.getElementById('userImage').src = imageUrl;
+        */
+       console.log(randomUserData.email);
+    
+    }
+    
+}
+xhr.send();
+
+
+
+</script>
+</html>

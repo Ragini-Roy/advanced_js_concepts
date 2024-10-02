@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeOut,clearInterval,setInterval, clearTimeOut</title>
+</head>
+<body>
+    <h1>Learning is the best asset in tech world.</h1>
+    <h2>Asynchronous Nature Of Javascript</h2>
+   <div id="start">
+    <button>start</button>
+   </div>
+   <br>
+   <br>
+   <div id="stop">
+   <button>stop</button>
+   </div> 
+   <ul id="set">
+   <li>setTimeOut executes a fucntion after a specified delay</li>
+   <li>When we want the function to occur after a specific amount of time in ns where 1000ms = 1sec.</li>
+   </ul>
+</body>
+<script>
+//    let intervalId;
+//    document.querySelector("#start").addEventListener("click",function() {
+//      intervalId= setInterval(function() {
+//      console.log("Ragini", Date.now);
+//      }, 2000);
+//    }); 
+
+//    document.getElementById("stop").addEventListener("click", function() {
+//     clearInterval(intervalId);
+//    });
+/*
+ let interval;
+ let myDate= new Date();
+ document.querySelector("#start").addEventListener("click", function() {
+    interval= setInterval(function() {
+        console.log("Ragini!");
+        myDate.toLocaleString();
+    },2000);
+ });
+ 
+ document.querySelector("#stop").addEventListener("click", function() {
+    clearInterval(interval);
+    console.log("button stopped!");
+ }); */
+  
+//  settimeout ex
+
+// const changeText = function () {
+//         document.querySelec(tor("h1").innerHTML = "Learning aysnc from hitesh chaudhary sir!";
+//     } //task : delay in changeText named function
+//     const changeHead = setTimeout(changeText, 3000); 
+/*
+  function changeTextContent()  {
+   document.querySelector("#set").addEventListener("click", function () {
+    setTimeout(function() {
+        document.querySelector("li").innerHTML= "setTimeOut , clearTimeout, setInterval, clearInterval";
+    },2000);
+   });
+  }; */
+
+  const listItems = document.querySelectorAll('#set li');
+        listItems.forEach((item, index) => {
+            item.textContent = `New Item ${index + 1}`;
+        });
+
+
+        // setTimeout(function(str) {
+        //     console.log( "ragini",Date.now());
+        // }); 
+        const sayName= function() {
+          //  console.log("learn with hitesh sir!");
+        }
+      setTimeout(sayName,2000); //a function without name is handler , can pass function as reference 
+        
+      clearTimeout(sayName,1000);
+
+    //to change the head after a specified time 
+    const changeContent= function() { //a handler
+      document.querySelector("h1").innerHTML= "Logic means practice and sharp mind!"; 
+    }
+    setTimeout(changeContent, 1000); 
+    //clearTimeout(changeContent,2000); 
+
+    document.querySelector("#stop").addEventListener('click', function() {
+    //   to stop any settimeout even to occur, we use cleartimeout()
+    console.log("stopped at this point!");
+    })
+   
+    // declaring another function to use into start named id
+    const changeHeading2= function() {
+        document.querySelector("h2").innerText= "youtube is best"; 
+    } //wants to use this function as a reference into cleartimeout whenever a user clicks on this button , it chanegs its heading after specified delay
+    // targeting through dom using query selector
+    let timeoutId=  setTimeout(changeHeading2, 2000); //changeHeading function passed as reference 
+    document.querySelector("h2").addEventListener("click", function() {
+        alert("this heading is going to be change!");
+        clearTimeout(timeoutId);
+    });
+
+    //setinterval
+    let date= new Date();
+     date= function(str) {
+        console.log("ragini", date)
+     }
+    const intervalid= setInterval(date, 2000, "this is setinterval");
+      clearInterval(intervalid); 
+      //this is flushing out all the callbacks from promise queue/priority queue, thus will stop printing the name with date
+
+      document.querySelector("#start").addEventListener("click", function() {
+        
+        let currentDate= function() {
+            alert("this is going to be change, check console!")
+            console.log("ragini", new Date());
+        };
+    });
+        setInterval(currentDate, 2000);
+        
+      
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

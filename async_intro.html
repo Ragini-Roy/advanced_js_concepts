@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async with chai aur code</title>
+</head>
+
+<body>
+    <h1>Asynchronous Javascript</h1>
+    <h3>It executes other code while executing longer tasks parallely without any delay , preventing any block within
+        code for ex:setTimeOut , Promises and synchronous js is execution of the code line by line.</h3>
+    <div id="start">
+        <button>start</button>
+    </div>
+    <br>
+    <div id="stop">
+        <button>stop</button>
+    </div>
+
+</body>
+<script>
+    const myName = function () {
+        console.log("ragini");
+    }
+    // using settimeout and clear timeout
+    const changeText = function () {
+        document.querySelector("h1").innerHTML = "Learning aysnc from hitesh chaudhary sir!";
+    } //task : delay in changeText named function
+    const changeHead = setTimeout(changeText, 3000); //passing changeText as argument
+    // now we want to clearTimeOut function 
+
+    clearTimeout(changeHead);
+
+    // applying clearTimeOut on stop btn
+    document.querySelector("#stop").addEventListener("click", function () {
+        clearTimeout(changeHead);
+        console.log("STOPPED");
+    });
+
+    // const currentDate = function () {
+    //     console.log(Date.now());
+    // }
+    // const intervalId = setInterval(() => {
+    //     console.log("ragini")
+    // }, 1000);
+    //it will keep on printing name after specified interval
+    //  document.querySelector("#start").addEventListener("click", function(str) {
+    //     console.log("ragini !", Date.now());
+    //  });
+    /*
+    document.querySelector("#start").addEventListener("click", function () {
+        const intervalId = setInterval(function () {
+            console.log("ragini", Date.now());
+        }, 1000);
+    });
+    document.querySelector("#stop").addEventListener("click", 
+        function () {
+       clearInterval(intervalId) ; 
+       console.log("interval cleared");
+    });*/
+
+    // let intervalId;
+    // document.querySelector("#start").addEventListener("click", function() {
+    // intervalId = setInterval(()=> {
+    //     document.getElementById("start").innerText+= "Name"; 
+    // },1000);
+    // });
+    // document.getElementById('stop').addEventListener('click', () => {
+    //         clearInterval(intervalId);
+    //     });
+        
+      
+
+</script>
+
+</html>
